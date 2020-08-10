@@ -13,15 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts/{post}', function($post) {
-    $posts = [
-        'my-first-post' => 'Hello, this is my first post',
-        'my-second-post' => 'This is my second post'
-    ];
-
-    if(! array_key_exists($post, $posts)) abort(404, 'Sorry, post not found');
-
-    return view('post', [
-        'post' => $posts[$post] ?? 'Nothing here yet.'
-    ]);
-});
+Route::get('/posts/{post}', 'PostController@show');
