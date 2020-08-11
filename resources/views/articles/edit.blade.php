@@ -8,7 +8,7 @@
     <div id="wrapper">
         <div id="page" class="container">
             <h1 class="heading has-text-weight-bold is-size-4">Edit Article</h1>
-            <form method="POST" action="/articles/{{ $article->id }}">
+            <form method="POST" action="{{ route('articles.update', ['article' => $article->id]) }}">
                 @method('PUT')
                 @csrf
                 <div class="field">

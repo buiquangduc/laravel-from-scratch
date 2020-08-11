@@ -21,9 +21,9 @@ Route::get('/about', function() {
     return view('about', ['articles' => \App\Article::latest()->take(3)->get()]);
 });
 
-Route::get('/articles', 'ArticleController@index');
-Route::post('/articles', 'ArticleController@store');
-Route::get('/articles/{article}/edit', 'ArticleController@edit');
-Route::put('/articles/{article}', 'ArticleController@update');
-Route::get('/articles/create', 'ArticleController@create');
-Route::get('/articles/{article}', 'ArticleController@show');
+Route::get('/articles', 'ArticleController@index')->name('articles.index');
+Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
+Route::post('/articles', 'ArticleController@store')->name('articles.store');
+Route::get('/articles/{article}/edit', 'ArticleController@edit')->name('articles.edit');
+Route::put('/articles/{article}', 'ArticleController@update')->name('articles.update');
+Route::get('/articles/{article}', 'ArticleController@show')->name('articles.show');
