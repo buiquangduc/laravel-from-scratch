@@ -7,15 +7,16 @@
 @section('content')
     <div id="wrapper">
         <div id="page" class="container">
-            <h1 class="heading has-text-weight-bold is-size-4">New Article</h1>
+            <h1 class="heading has-text-weight-bold is-size-4">Edit Article</h1>
 
-            <form method="POST" action="/articles">
+            <form method="POST" action="/articles/{{ $article->id }}">
+                @method('PUT')
                 @csrf
                 <div class="field">
                     <label class="label" for="title">Title</label>
 
                     <div class="control">
-                        <input class="input" type="text" name="title" id="title">
+                        <input class="input" value="{{ $article->title }}" type="text" name="title" id="title">
                     </div>
                 </div>
 
@@ -23,7 +24,7 @@
                     <label class="label" for="title">Excerpt</label>
 
                     <div class="control">
-                        <textarea class="textarea" name="excerpt" id="excerpt"></textarea>
+                        <textarea class="textarea" name="excerpt" id="excerpt">{{ $article->excerpt }}</textarea>
                     </div>
                 </div>
 
@@ -31,13 +32,13 @@
                     <label class="label" for="title">Body</label>
 
                     <div class="control">
-                        <textarea class="textarea" name="body" id="body"></textarea>
+                        <textarea class="textarea" name="body" id="body">{{ $article->body }}</textarea>
                     </div>
                 </div>
 
                 <div class="field is-grouped">
                     <div class="control">
-                        <button class="button is-link" type="submit">Submit</button>
+                        <button class="button is-link" type="submit">Update</button>
                     </div>
                 </div>
             </form>
