@@ -2,28 +2,28 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Test;
+use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class TestServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
     public function register()
     {
-        //
+        app()->singleton('test', Test::class);
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        //
+
     }
 }
