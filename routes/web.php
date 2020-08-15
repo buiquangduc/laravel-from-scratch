@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('contact', 'ContactController@show');
+
+Route::post('contact', 'ContactController@store');
+
 Route::get('/', function() {
     return view('welcome');
 });
