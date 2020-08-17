@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMe;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use App\Notifications\Contact;
 
 class ContactController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function show()
     {
         return view('contact');
@@ -15,14 +18,6 @@ class ContactController extends Controller
 
     public function store()
     {
-        request()->validate(['email' => 'required|email']);
-
-        $data = array('name'=>"Sam Jose", "body" => "Test mail");
-
-        Mail::to(request('email'))
-            ->send(new ContactMe($data['name']));
-
-        return redirect('/contact')
-            ->with('message', 'Email send!');
+        request()->user()->notify(new Contact());
     }
 }

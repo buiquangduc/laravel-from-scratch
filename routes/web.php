@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('contact', 'ContactController@show');
-
-Route::post('contact', 'ContactController@store');
-
 Route::get('/', function() {
     return view('welcome');
 });
 
 Auth::routes();
+
+Route::get('contact', 'ContactController@show');
+Route::post('contact', 'ContactController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');

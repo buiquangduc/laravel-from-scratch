@@ -3,12 +3,6 @@
 @section('content')
     <form method="POST" action="/contact">
         @csrf
-        <p>Email address</p>
-        <input type="text" name="email">
-        <button type="submit">Send email</button>
-        @error('email')
-            {{ $message }}
-        @enderror
-        @if(session('message')) {{ session('message') }} @endif
+        <button type="submit">Send notification</button>
     </form>
 @endsection
