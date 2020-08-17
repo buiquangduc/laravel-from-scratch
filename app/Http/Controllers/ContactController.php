@@ -18,6 +18,6 @@ class ContactController extends Controller
 
     public function store()
     {
-        request()->user()->notify(new Contact());
+        request()->user()->notify(new Contact('Hello World'));
     }
 }
