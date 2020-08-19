@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\Contact;
+use App\Events\ContactSent;
 
 class ContactController extends Controller
 {
@@ -19,5 +20,7 @@ class ContactController extends Controller
     public function store()
     {
         request()->user()->notify(new Contact('Hello World'));
+
+        ContactSent::dispatch(request()->user()->name);
     }
 }
