@@ -18,7 +18,7 @@ Route::get('/', function() {
 });
 
 Route::get('conversations', 'ConversationController@index');
-Route::get('conversations/{conversation}', 'ConversationController@show');
+Route::get('conversations/{conversation}', 'ConversationController@show')->middleware('can:view,conversation');
 
 Route::post('best-replies/{reply}', 'ConversationBestReplyController@store');
 
