@@ -15,4 +15,10 @@ class Conversation extends Model
     {
         return $this->hasMany('App\Reply');
     }
+
+    public function saveBestReply(Reply $reply)
+    {
+        $this->best_reply_id = $reply->id;
+        $this->save();
+    }
 }
