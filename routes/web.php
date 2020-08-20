@@ -17,10 +17,7 @@ Route::get('/', function() {
     return view('welcome');
 });
 
+Route::get('conversations', 'ConversationController@index');
+Route::get('conversations/{conversation}', 'ConversationController@show');
+
 Auth::routes();
-
-Route::get('contact', 'ContactController@show');
-Route::post('contact', 'ContactController@store');
-Route::get('notifications', 'UserNotificationController@show')->middleware('auth');
-
-Route::get('/home', 'HomeController@index')->name('home');
